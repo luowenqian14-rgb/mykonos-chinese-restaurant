@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>米岛中国餐厅 | Mykonos Chinese Restaurant</title>
+
+<style>
+
+/* ============================================================
+   DESIGN SYSTEM — Mykonos Cycladic × Chinese Aesthetics
+   Colors: Aegean Blue + Warm White + Chinese Red + Gold
+   ============================================================ */
+:root {
+  --white-warm: #faf8f4;
+  --white-pure: #ffffff;
+  --aegean-deep: #0b3d5c;
+  --aegean: #155e85;
+  --aegean-light: #3a8fc2;
+  --chinese-red: #b5343a;
+  --chinese-red-dark: #8b1a1f;
+  --gold: #c9a055;
+  --gold-light: #e0c87a;
+  --navy-dark: #091420;
+  --text-dark: #1a1a1a;
+  --text-mid: #444444;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-md: 0 6px 24px rgba(0,0,0,0.12);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.16);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", "Segoe UI", sans-serif;
+background: var(--white-warm);
+color: var(--text-dark);
+line-height: 1.7;
+-webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   HEADER — Frosted Aegean Glass
+   ============================================================ */
+header{
+position:fixed;
+top:0;
+width:100%;
+z-index:999;
+padding:18px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background: rgba(11,61,92,0.40);
+backdrop-filter: blur(14px) saturate(140%);
+-webkit-backdrop-filter: blur(14px) saturate(140%);
+border-bottom: 1px solid rgba(255,255,255,0.12);
+transition: background 0.3s;
+}
+
+.logo{
+color:white;
+font-size:30px;
+font-weight:700;
+letter-spacing: 2px;
+text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+.logo small{
+display:block;
+font-size:11px;
+font-weight:400;
+letter-spacing:3px;
+opacity:0.85;
+}
+
+nav{
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+nav a{
+color:rgba(255,255,255,0.92);
+text-decoration:none;
+padding:8px 16px;
+font-size:14px;
+font-weight:500;
+letter-spacing:0.5px;
+border-radius:20px;
+transition: all 0.25s;
+}
+
+nav a:hover{
+background:rgba(255,255,255,0.15);
+color:#fff;
+}
+
+.lang-btn{
+border:1.5px solid rgba(255,255,255,0.55);
+background:rgba(255,255,255,0.08);
+color:white;
+padding:9px 20px;
+border-radius:24px;
+cursor:pointer;
+font-size:13px;
+font-weight:500;
+letter-spacing:1px;
+transition: all 0.3s;
+}
+
+.lang-btn:hover{
+background:rgba(255,255,255,0.18);
+border-color:rgba(255,255,255,0.8);
+}
+
+/* ============================================================
+   HERO — Iconic Mykonos Windmills
+   ============================================================ */
+.hero{
+height:100vh;
+background:
+  linear-gradient(160deg, rgba(9,20,32,0.55) 0%, rgba(11,61,92,0.40) 60%, rgba(9,20,32,0.65) 100%),
+  url("windmills.jpg.png");
+background-size:cover;
+background-position:center center;
+background-repeat:no-repeat;
+display:flex;
+align-items:center;
+position:relative;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+height:80px;
+background:linear-gradient(to top, var(--white-warm), transparent);
+}
+
+.hero-content{
+padding-left:8%;
+color:white;
+position:relative;
+z-index:1;
+}
+
+.hero h1{
+font-size:78px;
+font-weight:800;
+letter-spacing:3px;
+margin-bottom:8px;
+text-shadow:0 3px 20px rgba(0,0,0,0.35);
+line-height:1.1;
+}
+
+.hero h2{
+font-size:22px;
+font-weight:300;
+letter-spacing:5px;
+margin-bottom:20px;
+opacity:0.9;
+}
+
+.hero p{
+font-size:20px;
+margin-bottom:40px;
+opacity:0.85;
+letter-spacing:1px;
+}
+
+/* Chinese decorative line */
+.hero p::before{
+content:"";
+display:block;
+width:60px;
+height:3px;
+background:var(--gold);
+margin-bottom:18px;
+border-radius:2px;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{
+display:inline-block;
+padding:15px 36px;
+border-radius:28px;
+text-decoration:none;
+margin-right:14px;
+font-weight:600;
+font-size:15px;
+letter-spacing:1px;
+transition: all 0.3s ease;
+box-shadow: var(--shadow-sm);
+position:relative;
+overflow:hidden;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+box-shadow: var(--shadow-md);
+}
+
+.btn:active{
+transform:translateY(0);
+}
+
+.red{
+background: linear-gradient(135deg, var(--chinese-red), var(--chinese-red-dark));
+color:white;
+}
+
+.blue{
+background: linear-gradient(135deg, var(--aegean), var(--aegean-deep));
+color:white;
+}
+
+.gold{
+background: linear-gradient(135deg, var(--gold), #b88a3a);
+color:white;
+}
+
+/* ============================================================
+   SECTION BASE
+   ============================================================ */
+section{
+padding:100px 10%;
+position:relative;
+}
+
+/* ============================================================
+   SECTION TITLE — with Chinese-inspired gold accent
+   ============================================================ */
+.title{
+text-align:center;
+margin-bottom:60px;
+position:relative;
+}
+
+.title h2{
+font-size:46px;
+font-weight:700;
+letter-spacing:2px;
+color:var(--aegean-deep);
+}
+
+.title p{
+color:var(--gold);
+margin-top:8px;
+font-size:14px;
+letter-spacing:4px;
+font-weight:500;
+}
+
+/* Gold decorative double-line under title */
+.title::after{
+content:"";
+display:block;
+width:80px;
+height:2px;
+background:var(--gold);
+margin:16px auto 0;
+border-radius:1px;
+position:relative;
+}
+
+.title::after{
+box-shadow: 0 6px 0 var(--gold-light);
+}
+
+/* ============================================================
+   ABOUT & CONTACT — Background Image + Overlay
+   ============================================================ */
+#about, #contact{
+background:
+  linear-gradient(rgba(250,248,244,0.72), rgba(250,248,244,0.78)),
+  url("images/666.jpg");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+}
+
+/* Cloud-pattern decorative separator before contact */
+#contact::before{
+content:"";
+display:block;
+position:absolute;
+top:0;
+left:50%;
+transform:translateX(-50%);
+width:120px;
+height:4px;
+background:linear-gradient(90deg, transparent, var(--gold), var(--chinese-red), var(--gold), transparent);
+border-radius:2px;
+}
+
+/* ============================================================
+   ABOUT SECTION
+   ============================================================ */
+.about{
+display:grid;
+grid-template-columns:1fr;
+gap:0;
+align-items:center;
+max-width:800px;
+margin:0 auto;
+}
+
+.about img{
+width:100%;
+border-radius:var(--radius-lg);
+box-shadow: var(--shadow-lg);
+transition: transform 0.4s;
+}
+
+.about img:hover{
+transform: scale(1.02);
+}
+
+.about-text{
+font-size:18px;
+line-height:2.1;
+color:var(--text-mid);
+}
+
+.about-text::first-letter{
+font-size:48px;
+font-weight:700;
+color:var(--chinese-red);
+float:left;
+line-height:1;
+margin:6px 10px 0 0;
+}
+
+/* ============================================================
+   CONTACT SECTION
+   ============================================================ */
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:start;
+}
+
+.contact-info{
+background:rgba(255,255,255,0.65);
+backdrop-filter:blur(6px);
+-webkit-backdrop-filter:blur(6px);
+padding:36px 34px;
+border-radius:var(--radius-md);
+box-shadow:var(--shadow-sm);
+border:1px solid rgba(201,160,85,0.25);
+font-size:17px;
+line-height:2.2;
+transition: box-shadow 0.3s;
+}
+
+.contact-info:hover{
+box-shadow:var(--shadow-md);
+}
+
+.contact-info a{
+color:var(--aegean);
+text-decoration:none;
+font-weight:500;
+transition:color 0.2s;
+}
+
+.contact-info a:hover{
+color:var(--chinese-red);
+}
+
+.address-block{
+margin-top:22px;
+padding-top:16px;
+border-top:1px solid rgba(201,160,85,0.35);
+}
+
+.address-block strong{
+display:block;
+margin-bottom:4px;
+color:var(--aegean-deep);
+font-size:15px;
+letter-spacing:1px;
+}
+
+.map-link{
+display:inline-block;
+margin-top:12px;
+padding:11px 26px;
+background:linear-gradient(135deg, var(--aegean), var(--aegean-deep));
+color:white;
+border-radius:24px;
+text-decoration:none;
+font-size:15px;
+font-weight:500;
+letter-spacing:0.5px;
+box-shadow:var(--shadow-sm);
+transition:all 0.3s;
+}
+
+.map-link:hover{
+transform:translateY(-2px);
+box-shadow:var(--shadow-md);
+color:white;
+}
+
+/* ============================================================
+   FOOTER — Deep Aegean with Gold
+   ============================================================ */
+footer{
+background:linear-gradient(180deg, var(--navy-dark), #060e18);
+color:rgba(255,255,255,0.8);
+text-align:center;
+padding:50px 40px;
+position:relative;
+}
+
+footer::before{
+content:"";
+display:block;
+position:absolute;
+top:0;
+left:50%;
+transform:translateX(-50%);
+width:100px;
+height:3px;
+background:linear-gradient(90deg, transparent, var(--gold), transparent);
+border-radius:2px;
+}
+
+footer a{
+color:var(--gold-light);
+text-decoration:none;
+font-weight:500;
+transition:color 0.2s;
+}
+
+footer a:hover{
+color:#fff;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width:900px){
+
+header{
+padding:16px 24px;
+}
+
+nav{
+display:none;
+}
+
+.hero h1{
+font-size:44px;
+letter-spacing:1px;
+}
+
+.hero h2{
+font-size:16px;
+letter-spacing:3px;
+}
+
+.hero p{
+font-size:17px;
+}
+
+.btn{
+display:block;
+margin-bottom:12px;
+margin-right:0;
+text-align:center;
+}
+
+.about{
+grid-template-columns:1fr;
+gap:36px;
+}
+
+.contact-grid{
+grid-template-columns:1fr;
+gap:28px;
+}
+
+section{
+padding:70px 6%;
+}
+
+.title h2{
+font-size:34px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header>
+
+<div class="logo">
+米岛中国餐厅
+<small>MYKONOS CHINESE RESTAURANT</small>
+</div>
+
+<nav>
+<a href="#" id="navHome">首页 HOME</a>
+<a href="#about" id="navAbout">关于我们 ABOUT</a>
+<a href="#" id="navMenu">菜单 MENU</a>
+<a href="#" id="navDrinks">酒水 DRINKS</a>
+<a href="#contact" id="navContact">联系我们 CONTACT</a>
+</nav>
+
+<button class="lang-btn" onclick="toggleLanguage()" id="langBtn">
+中文 / EN
+</button>
+
+</header>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+
+<div class="hero-content">
+
+<h1 id="title">
+米岛中国餐厅
+</h1>
+
+<h2 id="subtitle">
+MYKONOS CHINESE RESTAURANT
+</h2>
+
+<p id="desc">
+正宗中餐 · 新鲜食材 · 热情服务
+</p>
+
+<a href="menu.pdf" class="btn red" id="menuBtn" target="_blank">
+查看菜单
+</a>
+
+<a href="drinks.pdf" class="btn blue" id="drinkBtn" target="_blank">
+酒水单
+</a>
+
+<a href="https://wa.me/306993229566" class="btn gold" id="bookBtn" target="_blank">
+立即订位
+</a>
+</div>
+
+</section>
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section id="about">
+
+<div class="title">
+<h2 id="aboutTitle">关于我们</h2>
+<p id="aboutSub">ABOUT US</p>
+</div>
+
+<div class="about">
+
+<div class="about-text" id="aboutText">
+米岛中国餐厅位于希腊米科诺斯岛。<br><br>
+我们坚持使用优质食材与传统烹饪方式，为来自世界各地的客人提供正宗中国美食。
+</div>
+
+</div>
+
+</section>
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section id="contact">
+
+<div class="title">
+<h2 id="contactTitle">联系我们</h2>
+<p id="contactSub">CONTACT US</p>
+</div>
+
+<div class="contact-grid">
+
+<div class="contact-info" id="contactInfo">
+<p id="contactIntro">欢迎随时到访或来电咨询。</p>
+
+<div class="address-block">
+<strong id="addressLabel">餐厅地址：</strong>
+<p id="addressText">
+Mikonos, Agiou Louka, GR Mykonos ΦΑΜΠΡΙΚΑ<br>
+邮政编码: 846 00
+</p>
+<a href="https://maps.app.goo.gl/4LuCM8Ucm41tVADy8?g_st=ac"
+   class="map-link" target="_blank" id="mapLink">
+📍 在谷歌地图中查看
+</a>
+</div>
+
+</div>
+
+<div class="contact-info">
+<p>
+<strong id="whatsappLabel">WhatsApp 预定：</strong><br>
+<a href="https://wa.me/306993229566" target="_blank" id="whatsappLink">
+点此通过 WhatsApp 预定座位
+</a>
+</p>
+
+<div class="address-block">
+<strong id="phoneLabel">电话：</strong>
+<p id="phoneText">
+302289026829<br>306993229566
+</p>
+</div>
+
+<div class="address-block">
+<strong id="emailLabel">邮箱：</strong>
+<p id="emailText">
+wengy908@gmail.com
+</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+📍 Mykonos, Greece<br>
+<a href="https://maps.app.goo.gl/4LuCM8Ucm41tVADy8?g_st=ac" target="_blank" id="footerMapLink">
+在谷歌地图上查看
+</a>
+<br><br>
+© 2026 Mykonos Chinese Restaurant
+</footer>
+
+<!-- ============================================================
+     LANGUAGE TOGGLE SCRIPT
+     ============================================================ -->
+<script>
+
+let english = false;
+
+function toggleLanguage(){
+
+english = !english;
+
+if(english){
+
+/* ==== Header Nav ==== */
+navHome.innerHTML  = "HOME";
+navAbout.innerHTML = "ABOUT";
+navMenu.innerHTML  = "MENU";
+navDrinks.innerHTML = "DRINKS";
+navContact.innerHTML = "CONTACT";
+langBtn.innerHTML  = "中文 / EN";
+
+/* ==== Hero ==== */
+title.innerHTML    = "MYKONOS CHINESE RESTAURANT";
+subtitle.innerHTML  = "Authentic Chinese Cuisine";
+desc.innerHTML      = "Fresh Ingredients · Traditional Recipes · Warm Service";
+menuBtn.innerHTML   = "VIEW MENU";
+drinkBtn.innerHTML  = "DRINKS MENU";
+bookBtn.innerHTML   = "BOOK A TABLE";
+
+/* ==== About ==== */
+aboutTitle.innerHTML = "ABOUT US";
+aboutSub.innerHTML   = "ABOUT US";
+aboutText.innerHTML  = "Located in beautiful Mykonos, Greece.<br><br>We provide authentic Chinese cuisine using carefully selected ingredients and traditional cooking techniques for guests from around the world.";
+
+/* ==== Contact ==== */
+contactTitle.innerHTML   = "CONTACT US";
+contactSub.innerHTML     = "CONTACT US";
+contactIntro.innerHTML   = "Feel free to visit or call us anytime.";
+addressLabel.innerHTML   = "Address:";
+addressText.innerHTML    = "Mikonos, Agiou Louka, GR Mykonos ΦΑΜΠΡΙΚΑ<br>Postal Code: 846 00";
+mapLink.innerHTML        = "📍 View on Google Maps";
+whatsappLabel.innerHTML  = "Reserve via WhatsApp:";
+whatsappLink.innerHTML   = "Click to reserve a table via WhatsApp";
+phoneLabel.innerHTML     = "Phone:";
+phoneText.innerHTML      = "302289026829<br>306993229566";
+emailLabel.innerHTML     = "Email:";
+emailText.innerHTML      = "wengy908@gmail.com";
+footerMapLink.innerHTML  = "View on Google Maps";
+
+}else{
+
+/* ==== Header Nav ==== */
+navHome.innerHTML  = "首页 HOME";
+navAbout.innerHTML = "关于我们 ABOUT";
+navMenu.innerHTML  = "菜单 MENU";
+navDrinks.innerHTML = "酒水 DRINKS";
+navContact.innerHTML = "联系我们 CONTACT";
+langBtn.innerHTML  = "中文 / EN";
+
+/* ==== Hero ==== */
+title.innerHTML    = "米岛中国餐厅";
+subtitle.innerHTML  = "MYKONOS CHINESE RESTAURANT";
+desc.innerHTML      = "正宗中餐 · 新鲜食材 · 热情服务";
+menuBtn.innerHTML   = "查看菜单";
+drinkBtn.innerHTML  = "酒水单";
+bookBtn.innerHTML   = "立即订位";
+
+/* ==== About ==== */
+aboutTitle.innerHTML = "关于我们";
+aboutSub.innerHTML   = "ABOUT US";
+aboutText.innerHTML  = "米岛中国餐厅位于希腊米科诺斯岛。<br><br>我们坚持使用优质食材与传统烹饪方式，为来自世界各地的客人提供正宗中国美食。";
+
+/* ==== Contact ==== */
+contactTitle.innerHTML   = "联系我们";
+contactSub.innerHTML     = "CONTACT US";
+contactIntro.innerHTML   = "欢迎随时到访或来电咨询。";
+addressLabel.innerHTML   = "餐厅地址：";
+addressText.innerHTML    = "Mikonos, Agiou Louka, GR Mykonos ΦΑΜΠΡΙΚΑ<br>邮政编码: 846 00";
+mapLink.innerHTML        = "📍 在谷歌地图中查看";
+whatsappLabel.innerHTML  = "WhatsApp 预定：";
+whatsappLink.innerHTML   = "点此通过 WhatsApp 预定座位";
+phoneLabel.innerHTML     = "电话：";
+phoneText.innerHTML      = "302289026829<br>306993229566";
+emailLabel.innerHTML     = "邮箱：";
+emailText.innerHTML      = "wengy908@gmail.com";
+footerMapLink.innerHTML  = "在谷歌地图上查看";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
